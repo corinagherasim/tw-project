@@ -1,0 +1,112 @@
+#hamburger, #ch-menu {
+  display: none;
+}
+
+body {
+  --inaltime-meniu: 50px;
+  --latime-buton: 180px;
+  --culoare-meniu: var(--roz-principal);
+  /* --culoare-meniu: var(--background-roz); */
+  --culoare-meniu-apasare: var(--roz-secundar);
+  --culoare-border-buton: var(--culoare-border) ;
+}
+
+nav {
+  --culoare-text-meniu: var(--culoare-text);
+  /* background-color: var(--culoare-meniu); */
+  width: 100;
+  height: var(--inaltime-buton);
+  position: sticky;
+  top: 0;
+  left: 0;
+  --grosime-border: 2px;
+  --complement1: #24124f;
+  --complement2: #151559;
+  --complement3: #153859;
+}
+
+ul.meniu {
+  display: flex;
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+ul.meniu li {
+  width: var(--latime-buton);
+  height: var(--inaltime-meniu);
+  background-color: var(--culoare-meniu);
+  overflow: hidden;
+  text-align: center;
+  border: var(--grosime-border) solid var(--culoare-border-buton);
+  box-sizing: border-box;
+  transition: background-color 1s linear;
+}
+ul.meniu li div, ul.meniu li a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  /* vertical-align: middle; */
+  line-height: calc(var(--inaltime-meniu) - 2 * var(--grosime-border));
+  color: var(--culoare-text-meniu);
+  text-decoration: none;
+  font-weight: bold;
+}
+ul.meniu > li {
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: var(--latime-buton);
+}
+ul.meniu:hover {
+  background-color: var(--culoare-meniu-apasare);
+  overflow: visible;
+}
+ul.meniu ul {
+  opacity: 0;
+  transition: all 0.5s linear;
+  transform: scale(0, 0);
+  transform-origin: center top;
+  list-style-type: none;
+}
+ul.meniu ul {
+  padding: 0;
+  margin: 0;
+}
+
+ul.meniu li:hover ul {
+  opacity: 1;
+  transform: scale(1, 1);
+}
+
+#outer {
+  position: fixed;
+  border: 5px solid var(--culoare-border);
+  border-radius: 100%;
+  border-top: 0;
+  border-bottom: 0;
+  width: 75px;
+  height: 75px;
+  bottom: 0;
+  right: 0;
+}
+
+#inner {
+  width: 0;
+  height: 0;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-bottom: 20px solid rgba(69, 42, 54, 0.6);
+  margin: auto;
+  margin-top: 30%;
+  transition: all 0.3s linear;
+}
+
+#outer:hover #inner {
+  border-bottom: 20px solid var(--culoare-highlight);
+  transform: translateY(-10px);
+}
+
+#hamburger {
+  display: none;
+}
+
+/*# sourceMappingURL=nav.css.map */
