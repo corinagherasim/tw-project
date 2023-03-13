@@ -1,0 +1,11 @@
+html {
+    font-size: 12px;
+}
+
+#grid-pagina {
+    display: block;
+}
+
+#orar{
+    overflow:scroll;
+}
