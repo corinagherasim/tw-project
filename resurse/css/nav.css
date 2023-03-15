@@ -6,9 +6,8 @@ body{
     --inaltime-meniu: 50px;
     --latime-buton: 180px;
     --culoare-meniu: var(--roz-principal);
-    /* --culoare-meniu: var(--background-roz); */
-    --culoare-meniu-apasare: var(--roz-secundar);  
-    --culoare-border-buton: var(--culoare-border)
+    /* --culoare-meniu-apasare: var(--roz-secundar);   */
+    --culoare-border-buton: var(--culoare-border);
 }
 
 nav{
@@ -20,10 +19,6 @@ nav{
     top:0;
     left:0;
     --grosime-border: 2px;
-    --complement1: #24124f;
-    --complement2: #151559;
-    --complement3: #153859;
-
 }
 
 ul.meniu, ul.meniu ul{
@@ -49,11 +44,13 @@ ul.meniu li{
     width:var(--latime-buton);
     height:var(--inaltime-meniu);
     background-color: var(--culoare-meniu);
+    box-shadow: var(--culoare-highlight);
     overflow: hidden;
     text-align: center;
     border: var(--grosime-border) solid var(--culoare-border-buton);
     box-sizing: border-box;
-    transition: background-color 1s linear;
+    /* transition: background-color 1s linear; */
+    transition: box-shadow 1s linear;
 }
 
 ul.menu>li {
@@ -63,8 +60,9 @@ ul.menu>li {
 }
 
 ul.meniu li:hover{
-    background-color: var(--culoare-meniu-apasare);
+    /* background-color: var(--culoare-meniu-apasare); */
     overflow: visible;
+    box-shadow: inset 0px 0px 15px 0.5px var(--culoare-border);
 }
 
 ul.meniu ul{

@@ -14,5 +14,5 @@ html {
 }
 
 #orar{
-    overflow:scroll;
+    overflow-x:scroll;
 }
