@@ -4,6 +4,22 @@ html{
 
 #titlu-inceput{
     text-align: center;
+    font-family: 'Tangerine', serif;
+    font-size: 50px;
+    border: 1px solid var(--culoare-border);
+    border-top-left-radius:10px;
+    border-bottom-left-radius:10px;
+    border-top-right-radius:10px;
+    border-bottom-right-radius:10px;
+}
+
+footer{
+    text-align: center;
+    border: 1px solid var(--culoare-border);
+    border-top-left-radius:10px;
+    border-bottom-left-radius:10px;
+    border-top-right-radius:10px;
+    border-bottom-right-radius:10px;
 }
 
 body{
@@ -17,11 +33,6 @@ body{
     --spatiere-pagina: 25px;
 }
 
-#titlu_inceput{
-    font-family: 'Tangerine', serif;
-    font-size: 42px;
-}
-
 body{
     background-color: var(--background-roz);
     padding-left: var(--spatiere-pagina);
@@ -29,7 +40,7 @@ body{
 }
 
 #grid-pagina > *{
-    padding: 5px;
+    padding: var(--spatiere-pagina);
     border: 3px solid var(--culoare-border)
 }
 
@@ -108,11 +119,13 @@ a{
 
 img{
     width:100%;
+    max-width:2000px;
 }
 
 #ifr-video{
     width:100%;
     max-width:500px;
+    min-width:50px;
     border: 0.2em solid var(--culoare-border);
 }
 

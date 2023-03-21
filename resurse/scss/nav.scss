@@ -92,6 +92,11 @@ ul.meniu li:hover ul{
     height: 75px;
     bottom: 0;
     right: 0;
+
+    &:hover{
+        border-bottom: 20px solid var(--culoare-highlight);
+        transform: translateY(-10px);
+    }
 }
 
 #inner {
@@ -103,13 +108,7 @@ ul.meniu li:hover ul{
     margin: auto;
     margin-top: 30%;
     transition: all 0.3s linear;
-}
-
-#outer:hover #inner {
     border-bottom: 20px solid var(--culoare-highlight);
     transform: translateY(-10px);
 }
-
-#hamburger{
-    display:none;
-}
+ 

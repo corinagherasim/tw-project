@@ -50,7 +50,7 @@ ul.meniu li{
     border: var(--grosime-border) solid var(--culoare-border-buton);
     box-sizing: border-box;
     /* transition: background-color 1s linear; */
-    transition: box-shadow 1s linear;
+    transition: box-shadow 0.5s linear;
 }
 
 ul.menu>li {
@@ -62,7 +62,24 @@ ul.menu>li {
 ul.meniu li:hover{
     /* background-color: var(--culoare-meniu-apasare); */
     overflow: visible;
-    box-shadow: inset 0px 0px 15px 0.5px var(--culoare-border);
+    box-shadow: inset 0px 0px 15px 0.75px var(--culoare-border);
+}
+
+ul.meniu li ul li:hover{
+    box-shadow: none;
+}
+
+.arrow {
+    opacity: 0;
+    transition: all 0.3s linear;
+    position: absolute;
+    left: 5px;
+}
+
+a:hover .arrow {
+    opacity: 1;
+    display: block;
+    transform: translateX(100%);
 }
 
 ul.meniu ul{
@@ -76,6 +93,8 @@ ul.meniu li:hover ul{
     opacity: 1;
     transform: scale(1,1);
 }
+
+
 
 ul.meniu li div,ul.meniu li a{
     display: block;

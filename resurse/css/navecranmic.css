@@ -20,6 +20,23 @@ ul.meniu{
     display: none;
 }
 
+ul.meniu li:hover {
+    height: fit-content;
+    overflow: visible;
+}
+
+ul.meniu li ul li:hover{
+    box-shadow: inset 0px 0px 15px 0.75px var(--culoare-border);
+}
+
+.arrow {
+    display: none;
+}
+
+a:hover .arrow {
+    display: none;
+}
+
 #ch-menu:checked+ul.meniu{
     display:block;
     animation-name: animatie_meniu;
@@ -43,6 +60,6 @@ ul.meniu{
     100%{
         opacity:1;
         transform: scale(1,1);
-        background-color: var(--roz-principal);
+        /* background-color: var(--roz-principal); */
     }
 }
