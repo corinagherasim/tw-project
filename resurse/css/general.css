@@ -212,3 +212,35 @@ img{
 #tabel-orar tr:hover {
     border: 5px solid var(--roz-principal-rgba);
 }
+
+a{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 0%;
+}
+
+a.link:hover{
+    background-size: 100%;
+    color: var(--roz-principal);
+    background-image: radial-gradient(#4A122A 40%, #8fd5cf00 80%, #8fd5cf00 100%);
+    transition: all 1s linear;
+}
+
+a.link:visited{
+    color: var(--roz-principal);
+}
+
+a.link:active {
+    border: 1px solid var(--culoare-border);
+    transition: all 0.5s linear;
+}
+
+a.link[href^="http"]::before{
+    content: "⮳";
+    font-size:1.5em;
+}
+
+a.link[href^="http"]:hover::before{
+    color: var(--culoare-highlight);
+    transition: color 0.3s linear;
+}

@@ -1,5 +1,5 @@
 {
-    "cale_baza": "resurse/imagini/erori",
+    "cale_baza": "resurse/imagini/eroare",
     "eroare_default":{
         "titlu":"Eroare !!!",
         "text": "A survenit eroare.",
@@ -18,6 +18,13 @@
             "status":true,
             "titlu":"403 - Da, tu ce cauți aici?!!",
             "text": "Ai greșit ruta. Stânga-împrejur și pa!",
+            "imagine":"interzis.png"
+        },
+        {
+            "identificator":400,
+            "status":true,
+            "titlu":"Bad request",
+            "text": "Cerere gresita",
             "imagine":"interzis.png"
         },
         
