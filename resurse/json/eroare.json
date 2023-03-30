@@ -1,8 +1,8 @@
 {
-    "cale_baza": "resurse/imagini/eroare",
+    "cale_baza": "resurse/imagini/erori",
     "eroare_default":{
         "titlu":"Eroare !!!",
-        "text": "A survenit eroare.",
+        "text": "A survenit o eroare.",
         "imagine":"interzis.png"
     },
     "info_erori": [

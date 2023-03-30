@@ -241,6 +241,34 @@ a.link[href^="http"]::before{
 }
 
 a.link[href^="http"]:hover::before{
-    color: var(--culoare-highlight);
+    color: var(--roz-secundar);
     transition: color 0.3s linear;
+}
+
+video {
+    max-width: 350px;
+    max-height: 600px;
+    width: auto;
+    height: auto;
+    min-height: 250px;
+    min-width: 200px;
+}
+
+/* ::cue {
+    background-color: var(--culoare-border);
+    color: var(--background-roz);
+} */
+
+::cue {
+    /* nu am pus amandoua culori foarte inchise pentru ca cele alese erau prea asemanatoare si voiam sa se vada diferenta pentru gradient */
+    background: -webkit-linear-gradient(var(--culoare-border), var(--roz-principal));
+    color:#8fd5cf00;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+video::cue:first-of-type {
+    text-align: center;
+    display: block;
+    margin-left: 200px;
 }

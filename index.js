@@ -31,11 +31,12 @@ app.use(/ \//, function (req,res){
 });
 
 //nu accepta extensie
-app.use(/^\/resurse(\/[a-zA-Z0-9]*(?!\.)[a-zA-Z0-9]*)*$/, function(req,res){
-    afisareEroare(res,403);
-});
- 
-app.get("/favicon.ico", function(req,ress){
+
+app.use(/^\/resurse(\/[a-zA-Z0-9]*(?!\.)[a-zA-Z0-9]*)*$/, function (req, res) {
+    afiseazaEroare(res, 403);
+})
+
+app.get("/favicon.ico", function(req,res){
     res.sendFile(path.join(__dirname,"/resurse/imagini/margareta-1.jpg"))
 });
 
@@ -44,9 +45,9 @@ app.get("/ceva", function(req, res){
     res.send("<h1>altceva</h1> ip:"+req.ip);
 });
 
-// app.get("/despre", function(req, res){
-//     res.render("pagini/despre.ejs");
-// });
+app.get("/oferte", function(req, res){
+    res.render("pagini/oferte.ejs");
+});
 
 app.get(["/index","/","/home"], function(req, res){
     res.render("pagini/index.ejs", {ip: req.ip, a: 10,b: 20});
@@ -54,7 +55,7 @@ app.get(["/index","/","/home"], function(req, res){
 
 // app.get(/[a-zA-Z0-9]\.ejs$/)
 app.get("/*.ejs", function(req,res){
-    afisareEroare(res,400);
+    afiseazaEroare(res,400);
 });
 
 app.get("/*", function(req, res){
@@ -62,7 +63,7 @@ app.get("/*", function(req, res){
     res.render("pagini"+req.url, function(err, rezRandare){
         if(err){
             console.log(err);  
-            if(err.message.startsWith("Failed to lookup view."))
+            if(err.message.startsWith("Failed to lookup view"))
                 // afiseazaEroare(res,{identificator:404, titlu:"ceva"});
                 afiseazaEroare(res,404,"ceva");
             else
@@ -74,7 +75,7 @@ app.get("/*", function(req, res){
         }    
     });
     }catch(err){
-        if(err.message.startsWith("Cannot find module.")){
+        if(err.message.startsWith("Cannot find module")){
             afiseazaEroare(res,404);
         }
     }
@@ -96,22 +97,25 @@ function initializeazaErori(){
 initializeazaErori();
 
 
-function afiseazaEroare(res,{_identificator, _titlu, _text, _imagine}){
-    let vErori=obGlobal.obErori.info_erori;
-    let eroare= vErori.find(function(elem){return elem.identificator==_identificator;})
-    if (eroare){
-        let titlu1=_titlu=="titlu default" ? (eroare.titlu || titlu):_titlu;
-        let text1=_text=="text default" ? (eroare.text || text):_text;
-        let imagine1=_imagine=="imagine default" ? (eroare.imagine || imagine):_imagine;
-        if (eroare.status)
-            res.status(eroare.identificator).render("pagini/eroare.ejs",{titlu:titlu1,text:text1,imagine:imagine1});
-        else
-            res.render("pagini/eroare.ejs",{titlu:titlu1,text:text1,imagine:imagine1});
-    }
+function afiseazaEroare(res, _identificator, _titlu = "titlu default", _text, _imagine){
+    let vErori = obGlobal.obErori.info_erori;
+    let eroare = vErori.find(function (element) {
+        return element.identificator === _identificator;
+    });
+    if (eroare) {
+        let titlu = _titlu == "titlu default" ? (eroare.titlu || _titlu) : _titlu;
+        let text = _text || eroare.text;
+        let imagine = _imagine || eroare.imagine;
+        if (eroare.status) {
+            res.status(eroare.identificator).render("pagini/eroare", { titlu: titlu, text: text, imagine: imagine });
+        } else {
+            res.render("pagini/eroare", { titlu: titlu, text: text, imagine: obGlobal.obErori.cale_baza = "/" + errDef.imagine });
 
-    else{
-        let errDef=obGlobal.obErori.eroare_default;
-        res.render("pagini/eroare.ejs",{titlu:errDef.titlu,text:errDef.text,imagine:obGlobal.obErori.cale_baza+"/"+errDef.imagine});
+        }
+    }
+    else {
+        let errDef = obGlobal.obErori.eroare_default;
+        res.render("pagini/eroare", { titlu: errDef.titlu, text: errDef.text, imagine: errDef.imagine });
     }
 }
 

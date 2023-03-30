@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ro">
+ <head>
+       <meta name="keywords" content="florarie, florărie, florarie online, florărie online, livrare Bucuresti, livrare Ilfov, flori, floare, planta, plantă, plante, buchete, buchet, aranjament floral, ghiveci, copaci, copăcei, cactus, cactusi, cactuși, trandafiri, trandafir, crini, crizanteme, lalele, lalea, frezii, frezie, garoafe, garoafă, garoafa, iris, zambila, zambile, zambilă, orhidee, buchet mireasă, buchet mireasa, Valentine’s Day, buchet nasa, buchet nașă, buchet domnisoara de onoare, buchet domnișoară de onoare, buchet de cununie, coroane funerare, coroana funerara, coroană funerară, cruci florale, cruce florala, cruce florală
+       "><!--cuvintele cheie ale paginii; majoritatea motoarelor de căutare ignoră keywords -->
+       <meta name="description" content="Florărie online. Livrare în București și Ilfov. Flori pentru toate ocaziile."><!-- descrierea paginii, adesea apare sub link când sunt afișate rezultatele căutării -->
+       
+   <title>Flora</title>
+   <%- include ("../fragmente/head.ejs") %>
+
+ </head>
+ <body>
+    <header>
+        <h1 id="titlu-inceput">Flora <i class="fa-solid fa-fan fa-spin"></i></h1> 
+    </header>
+    <div id="watermark"></div>
+    <div id="absolut"></div>
+
+    <%- include ("../fragmente/header.ejs") %>
+    
+    <main>
+    <h2>Oferte</h2>
+    <p>La noi găsiți cele mai frumoase buchete la cele mai accesibile prețuri. Zilnic avem noi oferte din care puteți alege.</p>
+    <video controls poster="/resurse/imagini/poster-video.jpeg" preload="metadata">
+        <source src="/resurse/video/5-ways-to-wrap-a-bouquet.mp4" type="video/mp4">
+        <source src="/resurse/video/5-ways-to-wrap-a-bouquet.ogv" type="video/ogv">
+        <track label="Romanian" kind="subtitles" srclang="ro" src="/resurse/subtitrari/subtitrare-ro.vtt" default>
+        <track label="English" kind="subtitles" srclang="en" src="/Resurse/subtitrari/subtitrare-en.vtt">
+    </video>
+    </main>
+
+<%- include ("../fragmente/footer.ejs") %>
+
+</body>
+</html>
