@@ -263,6 +263,7 @@ video {
     /* nu am pus amandoua culori foarte inchise pentru ca cele alese erau prea asemanatoare si voiam sa se vada diferenta pentru gradient */
     background: -webkit-linear-gradient(var(--culoare-border), var(--roz-principal));
     color:#8fd5cf00;
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
