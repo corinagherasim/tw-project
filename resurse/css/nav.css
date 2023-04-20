@@ -13,7 +13,7 @@ body{
 nav{
     --culoare-text-meniu: var(--culoare-text);
     /* background-color: var(--culoare-meniu); */
-    width:100;
+    width:100%;
     height: var(--inaltime-buton);
     position: sticky;
     top:0;
@@ -26,6 +26,7 @@ ul.meniu, ul.meniu ul{
 }
 
 ul.meniu{
+    width:100%;
     display: flex; 
     padding: 0;
     margin: 0; 

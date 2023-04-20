@@ -5,9 +5,9 @@ html {
 #grid-pagina{
     grid-template-columns: repeat(3,1fr);
     grid-template-areas: "z-desprenoi z-desprenoi z-desprenoi"
-                        "z-plante z-oferte z-altele"
+                        "z-plante z-galerie z-altele"
                         "z-intrebari z-orar z-orar"
-                        "z-anunturi z-orar z-orar"
+                        "z-oferte z-orar z-orar"
                         "z-buchete z-buchete z-buchete"
                           ;
     gap: 10px 5px;

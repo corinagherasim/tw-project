@@ -50,10 +50,24 @@
                 <iframe id="ifr-video" name="ifr-video-dry" width="560" height="315" src="https://www.youtube.com/embed/eyq9FFxWgL4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </details>
         </section>
-        <section id="oferte">
-            <h2>Oferte</h2>
-            <p><b>Aici găsiți cele mai ieftine flori la prețuri de nerefuzat!</b></p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed porta, urna id ultricies porttitor, arcu mauris luctus quam, a semper ligula dui in lectus. Morbi ut placerat tellus, vitae rhoncus lacus. Cras tempus lectus ac tellus tincidunt ornare. Sed eu congue metus. Maecenas eu libero nec nulla sagittis facilisis vitae a augue. Suspendisse imperdiet in magna vel blandit. Phasellus dictum, dolor in convallis tincidunt, libero velit sollicitudin mauris, sed dignissim leo ex non mi. Aliquam ut lorem a orci eleifend ultricies. Sed viverra dignissim magna at dignissim. Quisque orci risus, tincidunt vitae leo at, volutpat imperdiet sem. Sed congue, elit at feugiat tincidunt, magna dui egestas nisl, quis eleifend tellus odio vitae tortor. Aenean lobortis nunc ut erat lobortis, at elementum purus dapibus. Fusce quis tempor est. Integer diam nunc, pretium in pulvinar eget, placerat eu dui. Phasellus ipsum sem, mattis a ultricies vel, aliquam vel leo.</p>
+        <section id="galerie">
+            <h2>Galerie</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed porta, urna id ultricies porttitor, arcu mauris luctus quam, a semper ligula dui in lectus.</p>
+            <div id="grid-galerie">
+                <% for (let imag of locals.imagini) { d=new Date(); d.getMonth(); var
+                    v_luni=["ianuarie", "februarie" , "martie","aprilie","mai","iunie","iulie","august", "septembrie" ,"octombrie","noiembrie","decembrie"];
+                    if(imag.luni && imag.luni.includes(v_luni[d.getMonth()])) { %>
+                    <figure>
+                        <picture>
+                            <source srcset="<%- imag.fisier_mediu %>" media="(max-width:1000px)" />
+                            <img src="<%- imag.fisier %>" alt="imagine">
+                        </picture>
+                        <figcaption><%- imag.descriere %></figcaption>
+                    </figure>
+                    <% } %>
+                <% } %>
+            </div>
+
         </section>
         <section id="orar">
             <h2>Orar</h2>
@@ -122,10 +136,10 @@
             </div>
          
         </section>
-        <section id="anunturi">
-            <h2>Anunțuri</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed porta, urna id ultricies porttitor, arcu mauris luctus quam, a semper ligula dui in lectus.</p>
-        </section>
+        <section id="oferte">
+            <h2>Oferte</h2>
+            <p><b>Aici găsiți cele mai ieftine flori la prețuri de nerefuzat!</b></p>
+            </section>
     <section id="buchete">
         <h2>Buchete de flori</h2>
         <p>Cu toate ca fiecare floare este diferită, există mai multe <i lang="en">tips and tricks</i> pentru a putea face florile să reziste mai mult. Mai jos sunt mai multe <i lang="en">tutoriale</i> care vă vor ajuta in acest sens.</p>
