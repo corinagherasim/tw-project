@@ -21,10 +21,12 @@
     <main>
     <div id="grid-pagina">
         <section id="desprenoi">
-            <h2>Despre noi</h2>
+            <marquee class="bineativenit" direction="right">Bine ați venit pe site-ul nostru!</marquee>
+            <h2 id="text">Despre noi</h2>
+            <h2 id="text-reflectat">Despre noi</h2>
             <!-- <p>IP: <%- locals.ip %></p> -->
             <p>Această florărie a apărut din iubirea pe care o avem față de flori. S-a deschis pentru prima oară în anul 2016 în format fizic în București și mai apoi ne-am extins și în format online în anul 2020. Buchetele sunt făcute cu grijă în ziua livrării pentru a-și păstra prospețimea.</p>
-            <p><strong>Livrăm numai în București și Ilfov!</strong> Mai multe detalii despre locație și contact găsiți în partea de jos a paginii.</p>
+            <p>Livrăm numai în București și Ilfov! Mai multe detalii despre locație și contact găsiți în partea de jos a paginii.</p>
             <figure>
                 <picture> 
                     <source media="(max-windth: 600px)" srcset="resurse/imagini/florarierandom.jpg">
@@ -35,7 +37,8 @@
                 </figure>
         </section>
         <section id="intrebari">
-            <h2>Întrebări frecvente</h2>
+            <h2 id="text">Întrebări frecvente</h2>
+            <h2 id="text-reflectat">Întrebări frecvente</h2>
             <details><summary> Pot programa livrarea pentru o anumită zi și oră? </summary>
                 <p> Da, numai că trebuie comunicat atunci când faceți comanda. </p></details>
             <details><summary> Cât de repede se poate face livrarea? </summary>
@@ -51,27 +54,57 @@
             </details>
         </section>
         <section id="galerie">
-            <h2>Galerie</h2>
+            <h2 id="text">Galerie</h2>
+            <h2 id="text-reflectat">Galerie</h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed porta, urna id ultricies porttitor, arcu mauris luctus quam, a semper ligula dui in lectus.</p>
             <div id="grid-galerie">
-                <% for (let imag of locals.imagini) { d=new Date(); d.getMonth(); var
-                    v_luni=["ianuarie", "februarie" , "martie","aprilie","mai","iunie","iulie","august", "septembrie" ,"octombrie","noiembrie","decembrie"];
-                    if(imag.luni && imag.luni.includes(v_luni[d.getMonth()])) { %>
+                <% let count = 0; %>
+                <% for (let imag of locals.imagini) {
+                    const now = new Date();
+                    const minute = now.getMinutes();
+                    const quarter = Math.floor(minute / 15);
+                    const v = ["1", "2", "3", "4"]; 
+                    if (imag.sfert_ora && imag.sfert_ora.includes(v[quarter]) && count < 10) { %>
                     <figure>
-                        <picture>
-                            <source srcset="<%- imag.fisier_mediu %>" media="(max-width:1000px)" />
-                            <img src="<%- imag.fisier %>" alt="imagine">
-                        </picture>
-                        <figcaption><%- imag.descriere %></figcaption>
+                      <picture>
+                        <source srcset="<%- imag.fisier_mediu %>" media="(max-width:1000px)" />
+                        <img src="<%- imag.fisier %>" alt="imagine">
+                      </picture>
+                      <figcaption><%- imag.descriere %></figcaption>
                     </figure>
-                    <% } %>
-                <% } %>
+                    <% count++; %>
+                    <div id = "gol"></div>
+                    <div id = "gol2"></div>
+                  <% }
+                } %>
+              </div>
+
+              <div id="container-galerie-animata">
+                <div class="galerie_animata" id="galanim" style="--nrImg: <% locals.nrImagini %>">
+
+                    <% var i=0; %>
+                        <% for (let imag of locals.imgInv) { %>
+                            <% i=i + 1; %>
+                                <% if(i> locals.nrImagini) { break; }%>
+                                    <% var nume_imag=imag.fisier.split('\\'); %>
+                                        <% nume_imag=nume_imag[nume_imag.length - 1]; %>
+                                            <figure>
+                                                <picture>
+                                                    <source srcset="<%- imag.fisier_mediu %>"
+                                                        media="(max-width:1000px)" />
+                                                    <img src="<%- imag.fisier %>" alt=" imagine ">
+                                                </picture>
+                                                <figcaption><%-imag.descriere %></figcaption>
+                                            </figure>
+                                            <% } %>
+                </div>
             </div>
 
         </section>
         <section id="orar">
-            <h2>Orar</h2>
-            <p><b>Pot apărea modificări în zilele cu sărbători, iar acestea vor fi postate în partea de anunțuri. În ziua specială din orarul de mai jos sunt încadrate zilele de 1 și 8 martie, Valentine’s day, Dragobete și prima zi de școală.</b></p>
+            <h2 id="text">Orar</h2>
+            <h2 id="text-reflectat">Orar</h2>
+            <p><b>Pot apărea modificări în zilele cu sărbători, iar acestea vor fi postate. În ziua specială din orarul de mai jos sunt încadrate zilele de 1 și 8 martie, Valentine’s day, Dragobete și prima zi de școală.</b></p>
             <div id="tabel">
             <table id="tabel-orar">
                 <caption>Program de lucru</caption>
@@ -141,7 +174,8 @@
             <p><b>Aici găsiți cele mai ieftine flori la prețuri de nerefuzat!</b></p>
             </section>
     <section id="buchete">
-        <h2>Buchete de flori</h2>
+        <h2 id="text">Buchete de flori</h2>
+        <h2 id="text-reflectat">Buchete de flori</h2>
         <p>Cu toate ca fiecare floare este diferită, există mai multe <i lang="en">tips and tricks</i> pentru a putea face florile să reziste mai mult. Mai jos sunt mai multe <i lang="en">tutoriale</i> care vă vor ajuta in acest sens.</p>
         <div class="container">
             <div class="taburi">
@@ -181,23 +215,14 @@
                 <li>apa trebuie schimbată zilnic.</li>
             </ol>
         </section>
-        <section id="buchetedegaroafe">
-            <h3>Buchete de garoafe</h3>
-            <p>Pentru a te bucura de garoafe o perioadă mai lungă de timp ar trebui să urmezi urmatoarele sfaturi:</p>
-            <ol>
-                <li>înainte de a pune florile în vază taie oblic cam 1,3-1,5 cm din codiță pentru a ajuta la hidratarea corectă;</li>
-                <li>rupe frunzele din partea de jos a tulpinii pentru a nu putrezi în apă;</li>
-                <li>rezistă mai multă vreme dacă tulpina florilor se taie între noduri și niciodată direct pe ele;</li>
-                <li>apa trebuie să fie la temperatura camerei </li>
-            </ol>
-        </section>
         <section id="buchetemixte">
             <h3>Buchete mixte</h3>
             <p>Fiecare floare are un tip de îngrijire specific. Pentru a vă putea bucura mai mult de florile oferite de noi cel mai bine ar fi să vă documentați în funcție de buchetul ales.</p>
         </section>
     </section>
     <section id="plante">
-        <h2>Plante</h2>
+        <h2 id="text">Plante</h2>
+        <h2 id="text-reflectat">Plante</h2>
         <section id="cactusi">
             <h3>Cactuși</h3>
             <p>Pentru a avea un cactus întreținut corect există niște sfaturi simple care merită urmate:</p>
@@ -219,7 +244,8 @@
     </section>
     <section id="altele">
     <section id="aranjamente">
-        <h2>Aranjamente florale</h2>
+        <h2 id="text">Aranjamente florale</h2>
+        <h2 id="text-reflectat">Aranjamente florale</h2>
         <section id="cosuleteflori">
             <h3>Coșuleț cu flori</h3>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eu consequat ligula. Nam vel efficitur massa. Nam posuere tempor aliquet. Vestibulum non sem nec tortor eleifend egestas.</p>
@@ -230,7 +256,8 @@
         </section>
     </section>
     <section id="evenimente">
-        <h2>Evenimente</h2>
+        <h2 id="text">Evenimente</h2>
+        <h2 id="text-reflectat">Evenimente</h2>
         <section id="nunti">
             <h3>Nunți</h3>
             <p>Pentru că știm că ziua nunții este una specială ți-am pregătit tot ce ai avea nevoie. Mai jos vei găsi mai multe tipuri de buchete de mireasă, de nașă și de domnișoare de onoare.</p>

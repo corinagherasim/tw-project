@@ -1,0 +1,129 @@
+$nrImg: 11;
+
+.galerie_animata {
+    margin-left: auto;
+    margin-right: auto;
+
+    figcaption {
+        position: absolute;
+        bottom: 0;
+        background: rgba(255, 255, 255, 0.7);
+        width: 100%;
+        text-align: center;
+        overflow: hidden;
+    }
+
+    figure {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        margin-left: auto;
+        margin-right: auto;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+}
+
+#galanim {
+    figure {
+        position: absolute;
+        z-index: 0;
+        animation-name: gal_exemplu;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+        animation-fill-mode: forwards;
+        animation-duration: calc(2s * $nrImg);
+        transform-origin: center;
+    }
+
+    &:hover figure {
+        -webkit-animation-play-state: paused;
+        -moz-animation-play-state: paused;
+        -o-animation-play-state: paused;
+        animation-play-state: paused;
+        cursor: pointer;
+    }
+
+    overflow:hidden;
+}
+
+@for $i from 0 through $nrImg {
+    #galanim figure:nth-child(#{$i}) {
+        animation-delay: 2s * $i;
+    }
+}
+
+#container-galerie-animata {
+    border: 3px solid #000;
+    width: 400px;
+    height: 400px;
+    margin: auto;
+    position: relative;
+    overflow: hidden;
+}
+
+// a=presentation time for one image
+// b=duration for cross fading
+// Total animation-duration is of course t=(a+b)*n
+
+// animation-delay = t/n or = a+b
+
+// Percentage for keyframes:
+
+// 0%
+// a/t*100%
+// (a+b)/t*100% = 1/n*100%
+// 100%-(b/t*100%)
+// 100%
+
+$start: calc(1.5 / ($nrImg * 3) * 100%);
+$mid: calc(3 / ($nrImg * 3) * 100%);
+$midm1: calc(3 / ($nrImg * 3) * 100% - 3%);
+$end: calc(100% - (1.5 / ($nrImg * 3) * 100%));
+
+@keyframes gal_exemplu {
+    0% {
+        opacity: 1;
+        z-index: 100;
+    }
+
+    #{$start} {
+        opacity: 1;
+        // transform: rotate(0deg);
+        // clip-path: circle(75%);
+        transform: translateX(30%);
+        z-index: 100;
+    }
+
+    #{$midm1} {
+        // clip-path: circle(25%);
+        // transform: rotate(0deg);
+        transform: translateX(-40%);
+        opacity: 0.6;
+        z-index: 100;
+    }
+
+    #{$mid} {
+        opacity: 0;
+        // transform: rotate(360deg);
+        // clip-path: circle(0%);
+        transform: translateX(100%);
+        z-index: 100;
+    }
+
+    #{$end} {
+        opacity: 0;
+        // transform: rotate(0deg);
+        // clip-path: circle(75%);
+        transform: translateX(100%);
+        z-index: -100;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}

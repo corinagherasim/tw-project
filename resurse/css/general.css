@@ -48,9 +48,9 @@ body{
     display:grid;
     grid-template-columns: repeat(4,1fr);
     grid-template-areas: "z-desprenoi z-desprenoi z-desprenoi z-desprenoi"
-                          "z-plante z-oferte z-oferte z-altele"
+                          "z-plante z-galerie z-galerie z-altele"
                           "z-intrebari z-intrebari z-orar z-orar"
-                          "z-anunturi z-anunturi z-orar z-orar"
+                          "z-oferte z-oferte z-orar z-orar"
                           "z-buchete z-buchete z-buchete z-buchete"
                           ;
     gap: 20px 10px;
@@ -72,8 +72,8 @@ body{
     grid-area: z-plante;
 }
 
-#anunturi{
-    grid-area: z-anunturi;
+#galerie{
+    grid-area: z-galerie;
 }
 
 #oferte{
@@ -99,7 +99,7 @@ body{
                             "z-intrebari z-orar z-orar"
                             "z-oferte z-orar z-orar"
                             "z-buchete z-buchete z-buchete"
-                              ;
+                            ;
         gap: 10px 5px;
     }
 }
@@ -273,3 +273,167 @@ video::cue:first-of-type {
     display: block;
     margin-left: 200px;
 }
+
+#tabel-reducere td{
+    text-align: center;
+    color: var(--culoare-text);
+}
+
+#tabel-reducere th {
+    border: 1px solid var(--culoare-text);
+    background-color: var(--roz-principal);
+}
+
+#tabel-reducere{
+    border: 5px solid var(--culoare-border);
+    border-collapse: collapse;
+    width: 40em;
+    height: 20em;
+    caption-side: bottom;
+}
+
+#tabel-reducere caption{
+    color: var(--culoare-text);
+    font-size: 1.5em;
+    font-weight: bold;
+    border: 5px solid var(--culoare-border);
+    background-color: var(--background-roz);
+}
+
+#tabel-reducere td,tr {
+    border: 1px solid var(--culoare-border);
+    border-top: 0;
+    border-bottom: 0;
+}
+
+#tabel-reducere tr:nth-child(even) {
+    border-bottom: 1px solid var(--culoare-border);
+    border-top: 0;
+}
+
+#tabel-reducere tr:nth-child(odd) {
+    border-bottom: 1px solid var(--roz-secundar);
+    border-top: 0;
+}
+
+@media screen and (max-width: 600px) {
+    #tabel-reducere{
+        height: fit-content;
+        overflow: hidden;
+    }
+    #tabel-reducere caption{
+        width: 80%;
+    }
+    table#tabel-reducere,
+    table#tabel-reducere tr {
+        border: none;
+        padding: 0;
+        margin: 0;
+        display: block;
+    }
+    table#tabel-reducere td {
+        display: block;
+        padding: 0.2em;
+        box-sizing: border-box;
+    }
+    table#tabel-reducere thead {
+        display: none;
+    }
+    table#tabel-reducere tbody td:nth-child(1)::before {
+        content: "Floare: ";
+    }
+    table#tabel-reducere tbody td:nth-child(2)::before {
+        content: "Culoare: ";
+    }
+    table#tabel-reducere tbody td:nth-child(3)::before {
+        content: "Numar minim de fire: ";
+    }
+    table#tabel-reducere tbody td:nth-child(4)::before {
+        content: "Numar maxim de fire: ";
+    }
+    table#tabel-reducere tbody td:nth-child(5)::before {
+        content: "Reducere: ";
+    }
+    
+    table#tabel-reducere td {
+        border-bottom: none;
+        border-top: none;
+        float: left;
+        width: 80%;
+        padding-left: 2%;
+        padding-right: 2%;
+    }
+    table#tabel-reducere td::before {
+        float: left;
+        width: 35%;
+        background: var(--roz-principal);
+        font-weight: bold;
+        margin-right: 0.5em;
+        padding: 0.1em;
+        line-height: 100%;
+    }
+    table#tabel-reducere td:last-child {
+        border-bottom: 1px dashed var(--culoare-border);
+    }
+    table#tabel-reducere tr:first-child td:first-child {
+        border-top: 1px solid var(--culoare-border);
+    }
+    table#tabel-reducere tr:last-child td:last-child {
+        border-bottom: 1px solid var(--culoare-border);
+    }
+}
+
+p::selection {
+    color: var(--roz-principal);
+    background-color: var(--culoare-border);
+}
+
+.row {
+    display: flex;
+}
+  
+.column {
+    flex: 50%;
+}
+
+@media screen and (max-width: 1000px) {
+    .column {
+      flex: 100%;
+    }
+  }
+
+.bineativenit{
+    color: var(--background-roz);
+    background-color: var(--culoare-border);
+    font-size:30px;
+    font-style:italic;
+    font-weight:600;
+    letter-spacing: 3px;
+  }
+
+  body {
+    background-image: url("resurse/imagini/background-roz.jpg");
+    background-attachment: fixed;
+  }
+
+#text{
+    font-size: 2.5em;
+}
+#text-reflectat {
+    font-size: 2.5em;
+    position: relative;
+    left: 0;
+    top: -5px;
+    transform-origin: 0 0;
+    transform: rotateX(180deg) skew(-45deg) scaleY(0.5) translate(10px, -25px);
+    opacity: 0.55;
+    filter: blur(1px);
+    transition: transform 0.5s ease-in-out;
+}
+
+#text:hover+#text-reflectat {
+    transform: rotateX(180deg) skew(-45deg) scaleY(0.7) translate(10px, -34px);
+    transform-origin: top;
+    transition: transform 0.5s ease-in-out;
+}
+

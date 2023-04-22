@@ -2,38 +2,131 @@
 	"cale_galerie":"resurse/imagini/galerie",
 	"imagini": [
 		{
-			"fisier":"briose-frisca.png",
-			"descriere":"Brioșe",
-			"luni":["martie","februarie","noiembrie","aprilie"]
+			"fisier":"aranjament-margarete-cutie.png",
+			"descriere":"Aranjament cu margarete in cutie",
+			"sfert_ora" : ["1"]
 		},
 		{
-			"fisier":"clatite.png",
-			"descriere":"Clătite cu dulceață",
-			"luni":["ianuarie","februarie","iunie"]
+			"fisier":"aranjament-mixt-cosulet.png",
+			"descriere":"Aranjament mixt in cosulet",
+			"sfert_ora" : ["2"]
 			
 		},
 		{
-			"fisier":"gogosi.png",
-			"descriere":"Gogoși glazurate",
-			"luni":["ianuarie","noiembrie","iunie","martie","aprilie"]
+			"fisier":"aranjament-trandafiri-cutie.png",
+			"descriere":"Aranjament trandafiri in cutie",
+			"sfert_ora" : ["1","3"]
 		},
 		{
-			"fisier":"tort-scortisoara.png",
-			"descriere":"Tort cu scorțisoară",
-			
-			"luni":["noiembrie"]
+			"fisier":"aranjament-vaza-roz.png",
+			"descriere":"Aranjament in vaza roz",
+			"sfert_ora" : ["2","4"]
 		},
 		{
-			"fisier":"prajitura-ciocolata.png",
-			"descriere":"Prăjitură cu ciocolată"
+			"fisier":"buchet-lalele-albe.png",
+			"descriere":"Buchet de lalele albe",
+			"sfert_ora" : ["2","4"]
 		},
 		{
-			"fisier":"tarta-afine.png",
-			"descriere":"Tartă cu afine"
+			"fisier":"buchet-lalele-rosii.png",
+			"descriere":"Buchet de lalele rosii",
+			"sfert_ora" : ["1","3"]
 		},
 		{
-			"fisier":"tort-trandafiri.png",
-			"descriere":"Tort special"
+			"fisier":"buchet-margarete.png",
+			"descriere":"Buchet de margarete",
+			"sfert_ora" : ["1","3"]
+		},
+		{
+			"fisier":"buchet-mireasa-portocaliu.png",
+			"descriere":"Buchet de mireasa cu tranafiri portocalii",
+			"sfert_ora" : ["1","3"]
+		},
+		{
+			"fisier":"buchet-mireasa-roz.png",
+			"descriere":"Buchet de mireasa cu flori roz",
+			"sfert_ora" : ["2","4"]
+		},
+		{
+			"fisier":"buchet-mireasa-rosu.png",
+			"descriere":"Buchet de mireasa cu flori rosii si roz",
+			"sfert_ora" : ["1","3","2","4"]
+		},
+		{
+			"fisier":"buchet-mixt-alb.png",
+			"descriere":"Buchet mixt de flori albe",
+			"sfert_ora" : ["1","3"]
+		},
+		{
+			"fisier":"buchet-mixt-intunecat.png",
+			"descriere":"Buchet mixt in nuante intunecate",
+			"sfert_ora" : ["2","4"]
+		},
+		{
+			"fisier":"buchet-mixt-roz.png",
+			"descriere":"Buchet mixt de flori roz",
+			"sfert_ora" : ["2","4"]
+		},
+		{
+			"fisier":"buchet-mixt-rozpal.png",
+			"descriere":"Buchet mixt de flori culoarea roz pal",
+			"sfert_ora" : ["1","3"]
+		},
+		{
+			"fisier":"buchet-mixt-floareasoarelui.png",
+			"descriere":"Buchet mixt cu floarea soarelui",
+			"sfert_ora" : ["2","4"]
+		},
+		{
+			"fisier":"buchet-trandafiri-alb.png",
+			"descriere":"Buchet de trandafiri albi",
+			"sfert_ora" : ["1","3"]
+		},
+		{
+			"fisier":"buchet-trandafiri-rosii.png",
+			"descriere":"Buchet de trandafiri rosii",
+			"sfert_ora" : ["2","4"]
+		},
+		{
+			"fisier":"cactus-floare-ghiveci.png",
+			"descriere":"Cactus cu floare in ghiveci",
+			"sfert_ora" : ["1","3"]
+		},
+		{
+			"fisier":"cactus-mini-ghiveci.png",
+			"descriere":"Cactusi mini in ghiveci",
+			"sfert_ora" : ["1","2","3","4"]
+		},
+		{
+			"fisier":"monstera-ghiveci.png",
+			"descriere":"Monstera in ghiveci",
+			"sfert-ora" : ["1","3"]
+		},
+		{
+			"fisier":"orhidee-ghiveci.png",
+			"descriere":"Orhidee in ghiveci",
+			"sfert_ora" : ["2","4"]
+		},
+		{
+			"fisier":"orhidee-roz-ghiveci.png",
+			"descriere":"Orhidee roz in ghiveci",
+			"sfert_ora" : ["1","3"]
+		},
+		{
+			"fisier":"planta-albastra-ghiveci.png",
+			"descriere":"Planta albastra in ghiveci",
+			"sfert_ora" : ["2","4"]
+		},
+		{
+			"fisier":"planta-ghiveci.png",
+			"descriere":"Planta in ghiveci",
+			"sfert_ora" : ["1","3"]
+		},
+		{
+			"fisier":"coroana-funerara.png",
+			"descriere":"Cororana funerara",
+			"sfert_ora" : ["1","3","2","4"]
 		}
+
 	]
 }

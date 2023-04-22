@@ -19,7 +19,8 @@
     <%- include ("../fragmente/header.ejs") %>
     
     <main>
-    <h2>Oferte</h2>
+    <h2 id="text">Oferte</h2>
+    <h2 id="text-reflectat">Oferte</h2>
     <button class = "btn btn-primary">cod de reducere de 15% : flora15</button>
     <!-- <div class="custom-model-main">
         <div class="custom-model-inner">
@@ -34,6 +35,8 @@
         <div class="bg-overlay"></div>
      </div> -->
     <p>La noi găsiți cele mai frumoase buchete la cele mai accesibile prețuri. Zilnic avem noi oferte din care puteți alege.</p>
+    <hr>
+    <p>Mai jos gășiți un video în care prezentăm mai multe moduri în care putem împacheta buchetele:</p>
     <video controls poster="/resurse/imagini/poster-video.jpeg" preload="metadata">
         <source src="/resurse/video/5-ways-to-wrap-a-bouquet.mp4" type="video/mp4">
         <source src="/resurse/video/5-ways-to-wrap-a-bouquet.ogv" type="video/ogv">
@@ -41,6 +44,77 @@
         <track label="English" kind="subtitles" srclang="en" src="/Resurse/subtitrari/subtitrare-en.vtt">
     </video>
     </main>
+    <hr>
+    <p>În tabelul de mai jos există buchetele simple (un singur tip de floare) care sunt la reducere:</p>
+    <div id="tabel-red">
+      <table id="tabel-reducere">
+         <caption>Tabel de reduceri</caption>
+         <thead>
+            <tr>
+               <th>Floare</th>
+               <th>Culoare</th>
+               <th>Numar minim de fire</th>
+               <th>Numar maxim de fire</th>
+               <th>Reducere</th>
+            </tr>
+         </thead>
+         <tbody>
+            <tr>
+               <td>Trandafiri</td>
+               <td>Rosii</td>
+               <td>5</td>
+               <td>11</td>
+               <td>30%</td>
+            </tr>
+            <tr>
+               <td>Trandafiri</td>
+               <td>Albi</td>
+               <td>5</td>
+               <td>11</td>
+               <td>20%</td>
+            </tr>
+            <tr>
+               <td>Lalele</td>
+               <td>Rosii</td>
+               <td>3</td>
+               <td>11</td>
+               <td>15%</td>
+            </tr>
+            <tr>
+               <td>Lalele</td>
+               <td>Galbene</td>
+               <td>3</td>
+               <td>11</td>
+               <td>15%</td>
+            </tr>
+            <tr>
+               <td>Margarete</td>
+               <td>Albe</td>
+               <td>11</td>
+               <td>21</td>
+               <td>25%</td>
+            </tr>
+            <tr>
+               <td>Floarea-soarelui</td>
+               <td>Galbene</td>
+               <td>5</td>
+               <td>11</td>
+               <td>10%</td>
+            </tr>
+         </tbody>
+         <tfoot></tfoot>
+      </table>
+    </div>
+   <hr>
+   <h3>Informații suplimentare legate de ofertele noastre</h3>
+   <div class="row">
+   <div class="column">
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent a eros pharetra, pharetra dolor vel, porttitor arcu. Integer eleifend tincidunt augue, quis vehicula dui porttitor mollis. Maecenas tincidunt lectus sit amet tellus finibus convallis. Etiam posuere libero in rutrum pharetra. Vestibulum aliquam libero felis, a malesuada odio auctor lacinia. Sed auctor id odio sit amet congue. Cras orci risus, pulvinar ut laoreet eget, ornare ut mi.Vestibulum vitae rhoncus erat. Morbi sit amet posuere est. Mauris rutrum vehicula finibus. Cras lacus leo, vehicula quis nibh in, venenatis lobortis dui. Nullam tincidunt nunc ut nibh dictum, at consectetur quam ultricies.</p>
+   </div>
+   <div class="column">
+      <p>Sed scelerisque libero non tortor facilisis auctor. Mauris sem urna, pretium a lacus a, volutpat interdum neque. Quisque id imperdiet ligula, nec egestas leo. Mauris elementum mi tortor. Sed nisi urna, iaculis non ultrices in, blandit id tortor. Donec gravida aliquet molestie. Aenean gravida, nibh nec vulputate condimentum, ipsum nulla ultrices metus, sit amet tristique nisi ante non purus. Nulla convallis placerat posuere. Quisque tristique dapibus augue eget bibendum. Donec fermentum ornare massa, sit amet facilisis magna gravida ut. Nam aliquet sem faucibus massa elementum feugiat. Nulla at lorem ac sapien gravida commodo faucibus et justo. Nunc tristique iaculis facilisis.</p>
+   </div>
+   </div>
 
 <%- include ("../fragmente/footer.ejs") %>
 

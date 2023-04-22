@@ -1,0 +1,132 @@
+.galerie_animata {
+  margin-left: auto;
+  margin-right: auto;
+}
+.galerie_animata figcaption {
+  position: absolute;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.7);
+  width: 100%;
+  text-align: center;
+  overflow: hidden;
+}
+.galerie_animata figure {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.galerie_animata figure img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+#galanim {
+  overflow: hidden;
+}
+#galanim figure {
+  position: absolute;
+  z-index: 0;
+  animation-name: gal_exemplu;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-fill-mode: forwards;
+  animation-duration: 22s;
+  transform-origin: center;
+}
+#galanim:hover figure {
+  -webkit-animation-play-state: paused;
+  -moz-animation-play-state: paused;
+  -o-animation-play-state: paused;
+  animation-play-state: paused;
+  cursor: pointer;
+}
+
+#galanim figure:nth-child(0) {
+  animation-delay: 0s;
+}
+
+#galanim figure:nth-child(1) {
+  animation-delay: 2s;
+}
+
+#galanim figure:nth-child(2) {
+  animation-delay: 4s;
+}
+
+#galanim figure:nth-child(3) {
+  animation-delay: 6s;
+}
+
+#galanim figure:nth-child(4) {
+  animation-delay: 8s;
+}
+
+#galanim figure:nth-child(5) {
+  animation-delay: 10s;
+}
+
+#galanim figure:nth-child(6) {
+  animation-delay: 12s;
+}
+
+#galanim figure:nth-child(7) {
+  animation-delay: 14s;
+}
+
+#galanim figure:nth-child(8) {
+  animation-delay: 16s;
+}
+
+#galanim figure:nth-child(9) {
+  animation-delay: 18s;
+}
+
+#galanim figure:nth-child(10) {
+  animation-delay: 20s;
+}
+
+#galanim figure:nth-child(11) {
+  animation-delay: 22s;
+}
+
+#container-galerie-animata {
+  border: 3px solid #000;
+  width: 400px;
+  height: 400px;
+  margin: auto;
+  position: relative;
+  overflow: hidden;
+}
+
+@keyframes gal_exemplu {
+  0% {
+    opacity: 1;
+    z-index: 100;
+  }
+  4.5454545455% {
+    opacity: 1;
+    transform: translateX(30%);
+    z-index: 100;
+  }
+  6.0909090909% {
+    transform: translateX(-40%);
+    opacity: 0.6;
+    z-index: 100;
+  }
+  9.0909090909% {
+    opacity: 0;
+    transform: translateX(100%);
+    z-index: 100;
+  }
+  95.4545454545% {
+    opacity: 0;
+    transform: translateX(100%);
+    z-index: -100;
+  }
+  100% {
+    opacity: 1;
+  }
+}

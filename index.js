@@ -5,6 +5,7 @@ const sharp=require('sharp');
 const sass=require('sass');
 const ejs = require('ejs');
 const {Client} = require ('pg');
+const {randomInt} = require('crypto');
 
 var client = new Client({
     database: "bd_tw_test",
@@ -91,8 +92,8 @@ app.use("/node_modules", express.static(path.join(__dirname,"/node_modules")));
 
 app.use(/ \//, function (req,res){
     res.send("Ceva");
-    console.log(req.originalUrl);
-    console.log(req.url);
+    // console.log(req.originalUrl);
+    // console.log(req.url);
 });
 
 //nu accepta extensie
@@ -106,7 +107,7 @@ app.get("/favicon.ico", function(req,res){
 });
 
 app.get("/ceva", function(req, res){
-    console.log("cale:",req.url)
+    // console.log("cale:",req.url)
     res.send("<h1>altceva</h1> ip:"+req.ip);
 });
 
@@ -115,7 +116,20 @@ app.get("/oferte", function(req, res){
 });
 
 app.get(["/index","/","/home"], function(req, res){
-    res.render("pagini/index.ejs", {ip: req.ip, a: 10,b: 20, imagini: obGlobal.obImagini.imagini});
+    let nrImagini = randomInt(6, 12);
+    if (nrImagini % 2 == 0)
+        nrImagini++;
+
+    let imgInv = [...obGlobal.obImagini.imagini].reverse();
+
+    let fisScss = path.join(__dirname, "Resurse/scss/galerie-animata.scss");
+    let liniiFisScss = fs.readFileSync(fisScss).toString().split('\n');
+
+    let stringImg = "$nrImg: " + nrImagini + ";";
+    liniiFisScss.shift();
+    liniiFisScss.unshift(stringImg);
+    fs.writeFileSync(fisScss, liniiFisScss.join('\n'))
+    res.render("pagini/index.ejs", {ip: req.ip, a: 10,b: 20, imagini: obGlobal.obImagini.imagini, nrImagini: nrImagini, imgInv: imgInv });
 });
 
 // app.get(/[a-zA-Z0-9]\.ejs$/)
@@ -131,7 +145,7 @@ app.get("/*", function(req, res){
     try{
     res.render("pagini"+req.url, function(err, rezRandare){
         if(err){
-            console.log(err);  
+            // console.log(err);  
             if(err.message.startsWith("Failed to lookup view"))
                 // afiseazaEroare(res,{identificator:404, titlu:"ceva"});
                 afiseazaEroare(res,404,"ceva");
@@ -139,7 +153,7 @@ app.get("/*", function(req, res){
                 afiseazaEroare(res);  
         }
         else{
-            console.log(rezRandare);
+            // console.log(rezRandare);
             res.send(rezRandare);
         }    
     });
@@ -150,9 +164,10 @@ app.get("/*", function(req, res){
     }
 });
 
+
 function initializeazaErori(){
     var continut=fs.readFileSync(path.join(__dirname,"/resurse/json/eroare.json")).toString("utf-8");
-    console.log(continut);
+    // console.log(continut);
     obGlobal.obErori=JSON.parse(continut);
     let vErori=obGlobal.obErori.info_erori;
     // for(let i=0;i<vErori.lenght;i++){

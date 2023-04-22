@@ -6,13 +6,28 @@
   #grid-galerie {
    display:grid;
    grid-template-columns: repeat(3,1fr);
+   grid-template-areas:
+   ". . . "
+   ". z-gol ."
+   ". z-gol2 ."
+   ". . .";
    grid-row-gap:0.5em;
    grid-column-gap:0.5em;
    counter-reset: nrimag 0;  /* nrimag=3 */
   }
   #grid-galerie img{
     width: 100%;
+    transition:all 1.2s linear ;
   }
+
+  #grid-galerie img:hover{
+    transform: scale(1.25);
+    -webkit-transform: scale(1.25);
+    border: 4px solid var(--culoare-border);
+    transform: rotate(-10deg);
+    -webkit-transform:rotate(-10deg);
+  }
+
   #grid-galerie figcaption{
     text-align:center;
     counter-increment: nrimag 1; /* nrimag+=2 */
@@ -20,11 +35,32 @@
   
   #grid-galerie figcaption::before{
     /* content: counter(nrimag, upper-alpha) ")"; */
-    content: counter(nrimag, lower-alpha) ")";
-    /* content: counter(nrimag) ")"; */
+    /* content: counter(nrimag, lower-alpha) ")"; */
+    content: counter(nrimag, upper-roman) ". ";
   }
+
+  #gol {
+    grid-area: z-gol;
+  }
+
+  #gol2 {
+    grid-area: z-gol2;
+  }
+
+  @media screen and (max-width: 1000px) {
+    #grid-galerie{
+        display:grid;
+        grid-template-columns: repeat(2,1fr);
+        grid-template-areas:
+        ". ."
+        ". ."
+        ". ."
+        ". ."
+        ". .";
+    }
+}
   
-  @media screen and (max-width:500px){
+  @media screen and (max-width:600px){
     #grid-galerie {
         display:block;
     }
