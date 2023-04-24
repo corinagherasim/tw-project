@@ -19,6 +19,7 @@ nav{
     top:0;
     left:0;
     --grosime-border: 2px;
+    z-index: 200;
 }
 
 ul.meniu, ul.meniu ul{

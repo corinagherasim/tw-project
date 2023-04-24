@@ -141,6 +141,40 @@ app.get("/*.css", function(req,res){
     afiseazaEroare(res,400);
 });
 
+app.get("/produse",function(req, res){
+
+    //TO DO query pentru a selecta toate produsele
+    //TO DO se adauaga filtrarea dupa tipul produsului
+    //TO DO se selecteaza si toate valorile din enum-ul categ_prajitura
+        let conditieWhere = "";
+        if(req.query.tip)
+            conditieWhere = ` WHERE tip_produs = '${req.query.tip}' `;
+ 
+        client.query("select * from prajituri"+conditieWhere , function( err, rez){
+            if(err){
+                console.log(err);
+                afiseazaEroare(res, 2);
+            }
+            else
+                res.render("pagini/produse", {produse:rez.rows, optiuni:[]});
+        });
+
+});
+
+app.get("/produs/:id",function(req, res){
+    console.log(req.params);
+    
+    client.query(" TO DO ", function( err, rezultat){
+        if(err){
+            console.log(err);
+            afiseazaEroare(res, 2);
+        }
+        else
+            res.render("pagini/produs", {prod:""});
+    });
+});
+
+
 app.get("/*", function(req, res){
     try{
     res.render("pagini"+req.url, function(err, rezRandare){
@@ -163,6 +197,8 @@ app.get("/*", function(req, res){
         }
     }
 });
+
+
 
 
 function initializeazaErori(){
@@ -215,6 +251,7 @@ function afiseazaEroare(res, _identificator, _titlu = "titlu default", _text, _i
         if (eroare.status) {
             res.status(eroare.identificator).render("pagini/eroare", { titlu: titlu, text: text, imagine: imagine });
         } else {
+            let errDef = obGlobal.obErori.eroare_default;
             res.render("pagini/eroare", { titlu: titlu, text: text, imagine: obGlobal.obErori.cale_baza = "/" + errDef.imagine });
 
         }
