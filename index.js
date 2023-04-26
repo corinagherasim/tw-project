@@ -26,9 +26,20 @@ obGlobal={
     obImagini:null,
     folderScss: path.join(__dirname, "resurse/scss"),
     folderCss: path.join(__dirname, "resurse/css"),
-    folderBackup: path.join(__dirname, "resurse/backup")
+    folderBackup: path.join(__dirname, "resurse/backup"),
+    optiuniMeniu:[]
 }
- 
+
+client.query("select * from unnest(enum_range(null::tipuri_produse))", function (err,rezCategorie){
+    if(err){
+        console.log(err);
+    }
+    else{
+        obGlobal.optiuniMeniu=rezCategorie.rows
+    }
+
+});
+
 app=express();
  
 console.log("Folder proiect:", __dirname);
@@ -45,8 +56,9 @@ for(let folder of vectorFoldere){
 
 function compileazaScss(caleScss, caleCss) {
     if (!caleCss) {
-        let vectorCale = caleScss.split("\\");
-        let numeFisierExtensie = vectorCale[vectorCale.length - 1];
+        // let vectorCale = caleScss.split("\\");
+        // let numeFisierExtensie = vectorCale[vectorCale.length - 1];
+        let numeFisierExtensie = path.basename(caleScss);
         let numeFisier = numeFisierExtensie.split(".")[0]; // a.scss->[("a"), ("scss")]
         caleCss = numeFisier + ".css";
     }
@@ -56,7 +68,12 @@ function compileazaScss(caleScss, caleCss) {
         caleCss = path.join(obGlobal.folderCss, caleCss);
 
     //LA ACEST PUNCT AVEM CAI ABSOLUTE IN CALESCSS SI FOLDER
-    let vectorCale = caleScss.split("\\");
+    // let vectorCale = caleScss.split("\\");
+    // let numeFisCss = path.basename(caleCss);
+    let caleBackup = path.join(obGlobal.folderBackup, "resurse/css");
+    if (!fs.existsSync(caleBackup))
+        fs.mkdirSync(caleBackup, {recursive:true});
+    
     let numeFisCss = path.basename(caleCss);
     if (fs.existsSync(caleCss)) {
         fs.copyFileSync(caleCss, path.join(obGlobal.folderBackup, numeFisCss));
@@ -89,6 +106,11 @@ app.set("view engine", "ejs");
 
 app.use("/resurse", express.static(path.join(__dirname,"/resurse")));
 app.use("/node_modules", express.static(path.join(__dirname,"/node_modules")));
+
+app.use("/*", function(req,res,next){
+    res.locals.optiuniMeniu=obGlobal.optiuniMeniu;
+    next();
+});
 
 app.use(/ \//, function (req,res){
     res.send("Ceva");
@@ -146,7 +168,13 @@ app.get("/produse",function(req, res){
     //TO DO query pentru a selecta toate produsele
     //TO DO se adauaga filtrarea dupa tipul produsului
     //TO DO se selecteaza si toate valorile din enum-ul categ_prajitura
-        let conditieWhere = "";
+    client.query("select * from unnest(enum_range(null::categ_prajitura))", function (err,rezCategorie){
+        if(err){
+            console.log(err);
+            afiseazaEroare(res, 2);
+        }
+        else{
+            let conditieWhere = "";
         if(req.query.tip)
             conditieWhere = ` WHERE tip_produs = '${req.query.tip}' `;
  
@@ -156,21 +184,24 @@ app.get("/produse",function(req, res){
                 afiseazaEroare(res, 2);
             }
             else
-                res.render("pagini/produse", {produse:rez.rows, optiuni:[]});
+                res.render("pagini/produse", {produse:rez.rows, optiuni:rezCategorie.rows});
         });
 
+        }
+    });
+     
 });
 
 app.get("/produs/:id",function(req, res){
     console.log(req.params);
     
-    client.query(" TO DO ", function( err, rezultat){
+    client.query(` select * from prajituri where id = ${req.params.id} `, function( err, rezultat){
         if(err){
             console.log(err);
             afiseazaEroare(res, 2);
         }
         else
-            res.render("pagini/produs", {prod:""});
+            res.render("pagini/produs", {prod:rezultat.rows[0]});
     });
 });
 

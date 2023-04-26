@@ -294,14 +294,6 @@ video::cue:first-of-type {
     caption-side: bottom;
 }
 
-#tabel-reducere caption{
-    color: var(--culoare-text);
-    font-size: 1.5em;
-    font-weight: bold;
-    border: 5px solid var(--culoare-border);
-    background-color: var(--background-roz);
-}
-
 #tabel-reducere td,tr {
     border: 1px solid var(--culoare-border);
     border-top: 0;
@@ -326,38 +318,37 @@ video::cue:first-of-type {
     #tabel-reducere caption{
         width: 80%;
     }
-    table#tabel-reducere,
-    table#tabel-reducere tr {
+    #tabel-reducere, #tabel-reducere tr {
         border: none;
         padding: 0;
         margin: 0;
         display: block;
     }
-    table#tabel-reducere td {
+    #tabel-reducere td {
         display: block;
         padding: 0.2em;
         box-sizing: border-box;
     }
-    table#tabel-reducere thead {
+    #tabel-reducere thead {
         display: none;
     }
-    table#tabel-reducere tbody td:nth-child(1)::before {
+    #tabel-reducere tbody td:nth-child(1)::before {
         content: "Floare: ";
     }
-    table#tabel-reducere tbody td:nth-child(2)::before {
+    #tabel-reducere tbody td:nth-child(2)::before {
         content: "Culoare: ";
     }
-    table#tabel-reducere tbody td:nth-child(3)::before {
+    #tabel-reducere tbody td:nth-child(3)::before {
         content: "Numar minim de fire: ";
     }
-    table#tabel-reducere tbody td:nth-child(4)::before {
+    #tabel-reducere tbody td:nth-child(4)::before {
         content: "Numar maxim de fire: ";
     }
-    table#tabel-reducere tbody td:nth-child(5)::before {
+    #tabel-reducere tbody td:nth-child(5)::before {
         content: "Reducere: ";
     }
     
-    table#tabel-reducere td {
+    #tabel-reducere td {
         border-bottom: none;
         border-top: none;
         float: left;
@@ -365,7 +356,7 @@ video::cue:first-of-type {
         padding-left: 2%;
         padding-right: 2%;
     }
-    table#tabel-reducere td::before {
+    #tabel-reducere td::before {
         float: left;
         width: 35%;
         background: var(--roz-principal);
@@ -374,13 +365,13 @@ video::cue:first-of-type {
         padding: 0.1em;
         line-height: 100%;
     }
-    table#tabel-reducere td:last-child {
+    #tabel-reducere td:last-child {
         border-bottom: 1px dashed var(--culoare-border);
     }
-    table#tabel-reducere tr:first-child td:first-child {
+    #tabel-reducere tr:first-child td:first-child {
         border-top: 1px solid var(--culoare-border);
     }
-    table#tabel-reducere tr:last-child td:last-child {
+    #tabel-reducere tr:last-child td:last-child {
         border-bottom: 1px solid var(--culoare-border);
     }
 }
@@ -415,10 +406,10 @@ p::selection {
     z-index:-1;
   }
 
-  body {
+  /* body {
     background-image: url("resurse/imagini/background-roz.jpg");
     background-attachment: fixed;
-  }
+  } */
 
 #text{
     font-size: 2.5em;
@@ -483,7 +474,6 @@ p::selection {
     left: -100%;
 }
 
-
 #duotone:hover:after {
     right: 0;
 }
@@ -491,3 +481,59 @@ p::selection {
 #duotone:hover:before {
     left: 0;
 }
+
+hr{
+    height: 20px;
+    border: 0;
+    background-image: repeating-linear-gradient(to  right, var(--culoare-border) 0, var(--culoare-border) 10px, transparent 10px, transparent 20px), repeating-linear-gradient(to left, transparent 0, transparent 10px,var(--culoare-border) 10px, var(--culoare-border) 20px);
+    background-size: 20px 10px;
+    background-position: 10px top, left 10px;
+    background-repeat: repeat-x;
+    position: relative;
+}
+/* 
+#transpus thead,tbody,tr {
+    display: block; 
+    float: left; 
+}
+
+#transpus th{
+    background-color: var(--roz-principal);
+}
+
+#transpus th, td { 
+    display: block; 
+    padding:0.5em;
+}
+#transpus td+td, #transpus th+th { 
+    border-top:none;
+}
+
+#transpus td{
+    border-left: 0;
+}
+
+#transpus td, #transpus th{
+    padding: 0.5em;
+    text-align: center;
+}
+
+#transpus td,tr {
+    border: 1px solid var(--culoare-border);
+    border-top: 0;
+    border-bottom: 0;
+}
+
+#transpus tr:nth-child(even) {
+    border-bottom: 1px solid var(--culoare-border);
+    border-top: 0;
+}
+
+#transpus tr:nth-child(odd) {
+    border-bottom: 1px solid var(--roz-secundar);
+    border-top: 0;
+}
+
+#transpus{
+    border: 5px solid var(--culoare-border);
+} */
