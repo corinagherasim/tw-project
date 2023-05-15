@@ -537,3 +537,8 @@ hr{
 #transpus{
     border: 5px solid var(--culoare-border);
 } */
+
+.dark-mode {
+    background-color: black;
+    color: white;
+  }

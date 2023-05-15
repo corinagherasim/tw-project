@@ -1,6 +1,11 @@
 @use '../../node_modules/bootstrap/scss/bootstrap.scss' with 
 (
     $primary: #4A122A,
-    $secondary: purple,
+    $secondary: rgb(69, 42, 54),
+
+    $grid-breakpoints: (
+        md: 600px, 
+        lg: 1000px
+    ),
 )
  

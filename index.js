@@ -20,7 +20,7 @@ client.query("select * from lab8_12", function(err, rez){
  
     console.log("Rezultat BD",rez.rows);
 });
-
+ 
 obGlobal={
     obErori:null,
     obImagini:null,
@@ -292,6 +292,11 @@ function afiseazaEroare(res, _identificator, _titlu = "titlu default", _text, _i
         res.render("pagini/eroare", { titlu: errDef.titlu, text: errDef.text, imagine: errDef.imagine });
     }
 }
+
+function myFunction() {
+    var element = document.body;
+    element.classList.toggle("dark-mode");
+  }
 
 app.listen(8080);
  
