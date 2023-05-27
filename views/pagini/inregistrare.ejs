@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html  lang="ro">
+    <head>
+        <meta name="keywords" content="florarie, florărie, florarie online, florărie online, livrare Bucuresti, livrare Ilfov, flori, floare, planta, plantă, plante, buchete, buchet, aranjament floral, ghiveci, copaci, copăcei, cactus, cactusi, cactuși, trandafiri, trandafir, crini, crizanteme, lalele, lalea, frezii, frezie, garoafe, garoafă, garoafa, iris, zambila, zambile, zambilă, orhidee, buchet mireasă, buchet mireasa, Valentine’s Day, buchet nasa, buchet nașă, buchet domnisoara de onoare, buchet domnișoară de onoare, buchet de cununie, coroane funerare, coroana funerara, coroană funerară, cruci florale, cruce florala, cruce florală"><!--cuvintele cheie ale paginii; majoritatea motoarelor de căutare ignoră keywords -->
+       <meta name="description" content="Florărie online. Livrare în București și Ilfov. Flori pentru toate ocaziile."><!-- descrierea paginii, adesea apare sub link când sunt afișate rezultatele căutării -->
+       
+        <title>Flora</title>
+        <link rel="stylesheet" href="/resurse/css/produse.css" type="text/css" />
+        <%- include("../fragmente/head") %>     
+        <script type="text/javascript" src=/resurse/js/inregistrare.js></script>
+    </head>
+    <body>
+    <header>
+    <h1 id="titlu-inceput">Flora <i class="fa-solid fa-fan fa-spin"></i></h1> 
+    <div id="watermark"></div>
+    <div id="absolut"></div>
+    <%- include("../fragmente/header") %>
+    </header>
+
+    <main>
+        
+        <h1>Înregistrare utilizator</h1>
+        <h2 id="text-reflectat">Înregistrare utilizator</h2>
+        <br>
+        <br>
+    <div class="afisaj">
+        <% if(!locals.raspuns) { %>    
+
+			<%-include("../fragmente/formular", {action: "/inregistrare"}) %>
+        <% } %>
+        
+	<% if(locals.raspuns) { %>
+	<%- locals.raspuns+"<br/>"%>
+	<% } %>
+	<% if(locals.err) { %>
+	<%- locals.err %>
+	<% } %>
+    </div>
+</main>
+
+<footer>
+    <%- include("../fragmente/footer") %>
+</footer>
+
+</body>
+</html>

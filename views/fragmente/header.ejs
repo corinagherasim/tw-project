@@ -1,19 +1,22 @@
+<script src="/resurse/js/tema.js"></script>
+
 <nav>
     <label id="hamburger" for="ch-menu">
         <img src="./resurse/imagini/Hamburger_icon_alb.png" alt="menu" height="30">
     </label>
     <input id="ch-menu" type="checkbox">
     <ul class="meniu">
-        <li><div><a href="index"><i class="fa-solid fa-house"></i><b id="acasa-meniu"> Acasă</b></a></div>
-        <ul>
-            <li><a href="index#desprenoi"><span class="arrow">→</span>Despre noi</a>
-            <li><a href="index#intrebari"><span class="arrow">→</span>Întrebări</a>
-            <li><a href="index#orar"><span class="arrow">→</span>Orar</a>
-            <li><a href="index#oferte"><span class="arrow">→</span>Oferte</a>
-            <li><a href="index#galerie"><span class="arrow">→</span>Galerie</a>
-        </ul>
+        <li>
+            <div><a href="index"><i class="fa-solid fa-house"></i><b id="acasa-meniu"> Acasă</b></a></div>
+            <ul>
+                <li><a href="index#desprenoi"><span class="arrow">→</span>Despre noi</a>
+                <li><a href="index#intrebari"><span class="arrow">→</span>Întrebări</a>
+                <li><a href="index#orar"><span class="arrow">→</span>Orar</a>
+                <li><a href="index#oferte"><span class="arrow">→</span>Oferte</a>
+                <li><a href="index#galerie"><span class="arrow">→</span>Galerie</a>
+            </ul>
         </li>
-        <li><div><a href="buchete.html"><i class="fa-brands fa-pagelines"></i><b id="buchete-meniu"> Buchete</b></a></div>
+        <!-- <li><div><a href="buchete.html"><i class="fa-brands fa-pagelines"></i><b id="buchete-meniu"> Buchete</b></a></div>
         <ul>
             <li><a href="buchete.html"><span class="arrow">→</span>Trandafiri</a>
             <li><a href="buchete.html"><span class="arrow">→</span>Lalele</a>
@@ -40,15 +43,35 @@
                 <li><a href="evenimente.html"><span class="arrow">→</span>Funerare</a>
                 <li><a href="evenimente.html"><span class="arrow">→</span>Valentine's day</a>
             </ul>
+        </li> -->
+        <li>
+            <div><a href="/oferte"><i class="fa-solid fa-fire"></i><b id="oferte-meniu"> Oferte</b></a></div>
         </li>
-        <li><div><a href="oferte"><i class="fa-solid fa-fire"></i><b id="oferte-meniu"> Oferte</b></a></li></div>
-        
-        <li><div>Produse</div>
+
+        <li>
+            <div><a href="/produse"><i class="fa-brands fa-pagelines"></i><b id="produse-meniu"> Produse</b></a></div>
             <ul>
-                <li><a href="produse">Toate</a></li>
-                <li><a href="produse?tip=cofetarie">Prajituri</a></li>
+                <li><a href="/produse"><span class="arrow">→</span>Toate</a></li>
+                <% for (let opt of locals.optiuniMeniu) { %>
+                    <li><a href="/produse?tip=<%= opt.unnest %>"><span class="arrow">→</span>
+                            <%= opt.unnest %>
+                        </a></li>
+                    <% } %>
             </ul>
-        
+        </li>
+
+        <li>
+            <div><a href="/inregistrare"><i class="fa-solid fa-person-circle-check"></i><b id="inregistrare-meniu">
+                        Inregistrare</b></a></div>
         </li>
     </ul>
 </nav>
+
+<div id="select_tema">
+    <i class="fa-regular fa-moon"></i>
+        <div class="form-check form-switch" id="cont_switch">
+            <input class="form-check-input" type="checkbox" role="switch" id="switch_tema">
+          </div>
+    <i class="fa-regular fa-sun"></i>
+
+</div>

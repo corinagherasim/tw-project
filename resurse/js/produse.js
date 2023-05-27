@@ -1,11 +1,11 @@
-window.onload = function(){
+window.addEventListener("load", function(){
 
     document.getElementById("resetare").onclick= function(){
        
         document.getElementById("inp-nume").value="";
        
         document.getElementById("inp-pret").value=document.getElementById("inp-pret").min;
-        document.getElementById("inp-categorie").value="toate";
+        document.getElementById("inp-tip_flori").value="toate";
         document.getElementById("i_rad4").checked=true;
         var produse=document.getElementsByClassName("produs");
  
@@ -23,23 +23,23 @@ window.onload = function(){
 
         let val_nume = document.getElementById("inp-nume").value.toLowerCase();
 
-        let calorii = document.getElementsByName("gr_rad");
+        let numar_fire = document.getElementsByName("gr_rad");
 
-        let val_calorii;
-        for(let r of calorii){
+        let val_numar_fire;
+        for(let r of numar_fire){
             if(r.checked){
-                val_calorii = r.value;
+                val_numar_fire = r.value;
             }
         }
-        if(val_calorii != "toate"){
-           [cal_a,cal_b] = val_calorii.split(":");
-           var cal_a = parseInt(cal_a);
-           var cal_b = parseInt(cal_b);
+        if(val_numar_fire != "toate"){
+           [nr_a,nr_b] = val_numar_fire.split(":");
+           var nr_a = parseInt(nr_a);
+           var nr_b = parseInt(nr_b);
         }
 
         let val_pret = document.getElementById("inp-pret").value;
 
-        let val_categ = document.getElementById("inp-categorie").value;
+        let val_tip_flori = document.getElementById("inp-tip_flori").value;
 
         var produse = document.getElementsByClassName("produs");
 
@@ -52,18 +52,19 @@ window.onload = function(){
 
             let cond1 = (nume.startsWith(val_nume));
 
-            let prod_calorii = parseInt(prod.getElementsByClassName("val-calorii")[0].innerHTML);
+            let numar_fire = parseInt(prod.getElementsByClassName("val-numar_fire")[0].innerHTML);
 
-            let cond2 = (val_calorii == "toate" || cal_a <= prod_calorii && prod_calorii < cal_b );
+            let cond2 = (val_numar_fire == "toate" || nr_a <= numar_fire && numar_fire < nr_b );
 
             let pret = parseFloat(prod.getElementsByClassName("val-pret")[0].innerHTML);
 
             let cond3 = (val_pret <= pret);
 
-            let categorie = prod.getElementsByClassName("val-categorie")[0].innerHTML;
+            let tip_flori = prod.getElementsByClassName("val-tip_flori")[0].innerHTML;
 
-            let cond4 = (val_categ == "toate" || val_categ == categorie);
+            let cond4 = (val_tip_flori == "toate" || val_tip_flori == tip_flori);
 
+            // cond1 && cond2 && cond3 && cond4
          if(cond1 && cond2 && cond3 && cond4)
             prod.style.display="block";
         }
@@ -95,4 +96,33 @@ window.onload = function(){
     document.getElementById("sortDescrescNume").onclick = function(){
         sortare(-1);
     }
-}
+
+    window.onkeydown = function(e){
+        if(e.key == "c" && e.altKey){
+            console.log("aici");
+            if(document.getElementById("info-suma"))
+                return;
+            var produse = document.getElementsByClassName("produs");
+            let suma = 0;
+            for(let prod of produse){
+                if(prod.style.display != "none"){
+                    let pret = parseFloat(prod.getElementsByClassName("val-pret")[0].innerHTML);
+                    suma+=pret;
+                }
+            }
+            let p =document.createElement("p");
+            p.innerHTML = suma;
+            p.id = "info-suma";
+            ps = document.getElementById("p-suma");
+            container = ps.parentNode;
+            frate = ps.nextElementSibling;
+            container.insertBefore(p,frate);
+            setTimeout(function(){
+                let info = document.getElementById("info-suma");
+                if(info)
+                    info.remove();
+            },1000);
+        }
+    }
+
+});

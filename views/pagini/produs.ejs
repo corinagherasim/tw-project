@@ -1,31 +1,42 @@
 <!DOCTYPE html>
 <html  lang="ro">
     <head>
-        <meta name="description" content="Cofetaria Dulcelind ofera prajituri, torturi, produse de patiserie cu optiunea de achizitie online si livrare prin curier.">
-        <meta name="keywords" content="cofetarie, Dulcelind, prajituri, torturi, dulce, pateuri, produse">
-        
-        <title>Cofetăria Dulcelind - home</title>
+        <meta name="keywords" content="florarie, florărie, florarie online, florărie online, livrare Bucuresti, livrare Ilfov, flori, floare, planta, plantă, plante, buchete, buchet, aranjament floral, ghiveci, copaci, copăcei, cactus, cactusi, cactuși, trandafiri, trandafir, crini, crizanteme, lalele, lalea, frezii, frezie, garoafe, garoafă, garoafa, iris, zambila, zambile, zambilă, orhidee, buchet mireasă, buchet mireasa, Valentine’s Day, buchet nasa, buchet nașă, buchet domnisoara de onoare, buchet domnișoară de onoare, buchet de cununie, coroane funerare, coroana funerara, coroană funerară, cruci florale, cruce florala, cruce florală"><!--cuvintele cheie ale paginii; majoritatea motoarelor de căutare ignoră keywords -->
+       <meta name="description" content="Florărie online. Livrare în București și Ilfov. Flori pentru toate ocaziile."><!-- descrierea paginii, adesea apare sub link când sunt afișate rezultatele căutării -->
+       
+        <title>Flora</title>
         <%- include("../fragmente/head") %>     
         <link href="/resurse/css/produs.css" type="text/css" rel="stylesheet" />
     </head>
     <body>
+        <header>
+            <h1 id="titlu-inceput">Flora <i class="fa-solid fa-fan fa-spin"></i></h1> 
+        </header>
+        <div id="watermark"></div>
+        <div id="absolut"></div>
+    
     <%- include("../fragmente/header") %>
 
     <main>
         <section>
-            <h2>Pagină produs</h2>
+        
+        <h2>Pagină produs</h2> 
+        <h2 id="text-reflectat">Pagină produs</h2>
+        <br>
                 <article id="art-produs">
                     <h3><span class="nume"><%- locals.prod.nume %></span></h3>
                     <p>Pret: <span class="pret"><%- locals.prod.pret %> </span></p>
                     <p>Descriere: <span class="descriere"><%- locals.prod.descriere %> </span></p>
-                    <p>Ingrediente: <span class="ingrediente"><%- locals.prod.ingrediente %> </span></p>
-                    <p>Calorii: <span class="calorii"><%- locals.prod.calorii %> </span></p>
-                    <p>Gramaj: <span class="gramaj"><%- locals.prod.gramaj %> </span></p>
-                    <p>Categorie: <span class="categorie"><%- locals.prod.categorie %> </span></p>
-                    <p>Pentru diabetici: <span class="pt_diabetici"><%- locals.prod.pt_diabetici %> </span></p>
-                    <p>Data adăugare: <span class="categorie"><%- locals.prod.data_adaugare %> </span></p>
+                    <p>Anotimpuri potrivite: <span class="anotimpuri"><%- locals.prod.anotimpuri %> </span></p>
+                    <p>Numar de fire: <span class="numar_fire"><%- locals.prod.numar_fire %> </span></p>
+                    <p>Culoare: <span class="culoare"><%- locals.prod.culoare %> </span></p>
+                    <p>Tip de floare: <span class="tip_flori"><%- locals.prod.tip_flori %> </span></p>
+                    <p>TMod de vanzare: <span class="mod_vanzare"><%- locals.prod.mod_vanzare %> </span></p>
+                    <p>Livrare in 24h: <span class="livrare"><%- locals.prod.livrare_24h %> </span></p>
+                    <p>Eveniment potrivit: <span class="evenimente"><%- locals.prod.eveniment %> </span></p>
+                    <p class="data">Data adăugare: <time datetime="YYYY-MM-DD" class="val-data"><%- prod.data_adaugare %></time></p>
                     <figure class="imag-produs">
-                        <img  src="/resurse/imagini/produse/<%- locals.prod.imagine %>" alt="[imagine <%- locals.prod.nume %>]" />
+                        <img  src="/resurse/imagini/produse/<%- locals.prod.imagine %>" style="width:30%;height:auto;" alt="[imagine <%- locals.prod.nume %>]" />
                     </figure>    
                 </article>
             

@@ -1,0 +1,32 @@
+DROP TYPE IF EXISTS mod_vanzare;
+DROP TYPE IF EXISTS tip_flori;
+DROP TYPE IF EXISTS eveniment;
+
+
+CREATE TYPE mod_vanzare AS ENUM( 'buchet', 'ghiveci', 'cutie', 'aranjament', 'cosulet');
+CREATE TYPE tip_flori AS ENUM('trandafiri', 'lalele', 'orhidee', 'cactusi', 'monstera', 'margarete', 'mixt');
+CREATE TYPE eveniment AS ENUM('nuntă', 'funerar', 'Dragobete/Valentine','niciunul');
+
+CREATE TABLE IF NOT EXISTS florarie (
+   id serial PRIMARY KEY,
+   nume VARCHAR(100) UNIQUE NOT NULL,
+   descriere TEXT,
+   pret NUMERIC(8,2) NOT NULL,
+   numar_fire INT NOT NULL CHECK (gramaj>=0),
+   mod_vanzare moduri_vanzare DEFAULT 'buchet',
+   tip_floare tipuri_flori DEFAULT 'mixt',
+	eveniment evenimente DEFAULT 'niciunul',
+   anotimpuri VARCHAR [], --pot sa nu fie specificare deci nu punem NOT NULL
+   livrare_24h BOOLEAN NOT NULL DEFAULT FALSE,
+	culoare VARCHAR(50),
+   imagine VARCHAR(300),
+   data_adaugare TIMESTAMP DEFAULT current_timestamp
+);
+
+INSERT into florarie (nume,descriere,pret, numar_fire, moduri_vanzare, tipuri_flori, evenimente, anotimpuri, livrare_24h, culoare, imagine) VALUES 
+('Orhidee', 'Orhidee mov în ghiveci, ușor de îngrijit', 30.00 , 1, 'ghiveci', 'orhidee', 'niciunul', '{"toamna","iarna","primavara"}', True, 'mov', 'orhidee-ghiveci.png'),
+('Buchet de trandafiri roșii', 'Buchet mare de trandafiri potrivit pentru persoana iubită, greu de găsit vază', 250.00 , 100, 'buchet', 'trandafiri', 'niciunul', '{"vara","primavara"}', True, 'roșu', 'buchet-trandafiri-rosii.png'),
+('Coroană funerară', 'Coroană funerară pentru înmormântări', 150.00 , 1000, 'aranjament', 'mixt', 'funerar', '{"toamna","iarna","primavara","vara"}', False, 'mixt', 'coroana-funerara.png'),
+('Buchet de mireasă roz', 'Buchet de mireasă pentru Barbie', 90.00 , 40, 'buchet', 'mixt', 'nuntă', '{"toamna","iarna","primavara","vara"}', False, 'roz', 'buchet-mireasa-rosu.png'),
+('Buchet de lalele rosii', 'Buchet de lalele extraordinare, ușor de îngrijit de oricine', 35.00 , 7, 'buchet', 'lalele', 'niciunul', '{"primavara"}', True, 'roșu', 'buchet-lalele-rosii.png'),
+('Cactus', 'Cactus în ghiveci dacă aveți noroc și cu o floricică', 15.00 , 1, 'ghiveci', 'cactusi', 'niciunul', '{"vara"}', True, 'verde', 'cactus-floare-ghiveci.png');
