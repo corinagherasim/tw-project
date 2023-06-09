@@ -150,7 +150,9 @@ class Utilizator{
                 eroare=-1;
             }
             //constructor({id, username, nume, prenume, email, rol, culoare_chat="black", poza}={})
-            let u= new Utilizator(rezSelect.rows[0])
+            else{
+                let u= new Utilizator(rezSelect.rows[0])
+            }
             proceseazaUtiliz(u, obparam, eroare);
         });
     }

@@ -24,12 +24,32 @@
             <h2 id="text">Despre noi</h2>
             <h2 id="text-reflectat">Despre noi</h2>
             <!-- <p>IP: <%- locals.ip %></p> -->
+            <% if(!locals.utilizator) { %>
+                <form id="form_inreg"  method="post" class="date"  action="/login"  enctype="multipart/form-data">
+                    <p>
+                        <label>
+                            Username: <input type="text" name="username" id="inp-username" value="" required">
+                        </label>
+                    </p>
+                    <p>
+                        <label>
+                            Parola: <input id="parl" type="password" required  name="parola" value="">
+                        </label>
+                    </p>
+                    <p><input type="submit" value="Logare"></p>
+                </form>
+                <p><%- locals.mesajLogin %></p>
+                <% } else {%>
+                   <%- locals.succesLogin %>
+                <% }  %>
+
             <p>Această florărie a apărut din iubirea pe care o avem față de flori. S-a deschis pentru prima oară în anul 2016 în format fizic în București și mai apoi ne-am extins și în format online în anul 2020. Buchetele sunt făcute cu grijă în ziua livrării pentru a-și păstra prospețimea.</p>
             <p>Livrăm numai în București și Ilfov! Mai multe detalii despre locație și contact găsiți în partea de jos a paginii.</p>
+            <p><q>Fiecare floare este un suflet care înflorește în natură.</q> - Gerard De Nerval</p>
             <figure>
                 <picture> 
-                    <source media="(max-windth: 600px)" srcset="resurse/imagini/florarierandom.jpg">
-                    <source media="(max-windth: 1000px)" srcset="resurse/imagini/florarierandom.jpg">
+                    <source media="(max-windth: 600px)" srcset="resurse/imagini/rsz_1rsz_florarierandom.jpg">
+                    <source media="(max-windth: 1000px)" srcset="resurse/imagini/rsz_florarierandom.jpg">
                     <img src="resurse/imagini/florarierandom.jpg" alt="imagine-sigla" title="Florăria Flora"/>
                     <figcaption>Vitrina florăriei</figcaption>
                 </picture> 
